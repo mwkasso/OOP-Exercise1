@@ -9,6 +9,10 @@ class Person
 		@phone_num = []
 	end
 
+	def fullname
+		return @name + " " +@surname
+	end
+
 	def add_email(email)
 		@emails << email
 	end
@@ -24,4 +28,6 @@ class Person
 	def remove_phone(position)
 		@phone_numbers.delete_at(position)
 	end
+
+	
 end
