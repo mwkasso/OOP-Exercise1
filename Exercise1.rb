@@ -2,7 +2,7 @@ class Person
 	attr_reader :first_name, :surname, :dob, :emails, :phone_numbers, :fullname
 	
 	#initialize
-	def initialize(name = "joe", surname = "bloggs", dob = "")
+	def initialize(name = "joe", surname = "bloggs", dob = nil)
 		@first_name = name.capitalize
 		@surname = surname.capitalize
 		@dob = dob
