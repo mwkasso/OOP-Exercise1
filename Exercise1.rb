@@ -1,16 +1,16 @@
 class Person
-	attr_reader :name, :surname, :dob, :emails, :phone_numbers
+	attr_reader :first_name, :surname, :dob, :emails, :phone_numbers
 	
 	def initialize(name, surname, dob = "")
-		@name = name
-		@surname = surname
+		@first_name = name.capitalize
+		@surname = surname.capitalize
 		@dob = dob
 		@emails = []
-		@phone_num = []
+		@phone_numbers = []
 	end
 
 	def fullname
-		return @name + " " +@surname
+		return @first_name + " " +@surname
 	end
 
 	def add_email(email)
@@ -30,6 +30,6 @@ class Person
 	end
 
 	def to_s
-		puts "#{fullname} was born on #{@dob}. \n Their email addresses are: #{@emails}. \n Their phone numbers are #{@phone_numbers}"
+		return "#{fullname} was born on #{@dob}. \nTheir email addresses are: #{@emails}. \nTheir phone numbers are #{@phone_numbers}"
 	end
 end
