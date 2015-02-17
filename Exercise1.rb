@@ -59,3 +59,13 @@ end
 class FamilyMember < Person
 	attr_accessor :relationship
 end
+
+class AddressBook
+	attr_reader :book
+	def add
+
+	end
+	def list
+		
+	end
+end
