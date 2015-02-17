@@ -29,5 +29,7 @@ class Person
 		@phone_numbers.delete_at(position)
 	end
 
-	
+	def to_s
+		puts "#{fullname} was born on #{@dob}. \n Their email addresses are: #{@emails}. \n Their phone numbers are #{@phone_numbers}"
+	end
 end
