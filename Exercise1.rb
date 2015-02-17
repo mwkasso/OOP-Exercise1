@@ -1,5 +1,5 @@
 class Person
-	attr_reader :first_name, :surname, :dob, :emails, :phone_numbers
+	attr_reader :first_name, :surname, :dob, :emails, :phone_numbers, :fullname
 	
 	#initialize
 	def initialize(name = "joe", surname = "bloggs", dob = "")
@@ -8,13 +8,10 @@ class Person
 		@dob = dob
 		@emails = []
 		@phone_numbers = []
+		@fullname = @first_name + " " +@surname
 	end
 
 	# get methods
-
-	def fullname
-		return @first_name + " " +@surname
-	end
 
 	def print_details
 		puts "#{fullname}\n"
@@ -26,7 +23,7 @@ class Person
 		end
 		puts "Phone Numbers:\n"
 		@phone_numbers.each do |value|
-			puts "- #{value}" + 
+			puts "- #{value}" 
 		end
 		return ''
 	end
@@ -56,16 +53,34 @@ class Person
 	end
 end
 
+# FamilyMember class
+
 class FamilyMember < Person
 	attr_accessor :relationship
 end
 
-class AddressBook
-	attr_reader :book
-	def add
+# AddressBook class
 
+class AddressBook
+	attr_reader :addressbook
+
+	def initialize
+		@addressbook = []
 	end
+
+	def add(person)
+		if person.class == Person
+			@addressbook << person 
+		else
+			puts 'Input is not a person'
+		end
+	end
+
 	def list
-		
+		puts "Address Book\n"
+		puts '-' * 'Address Book'.length
+		puts "\n"
+		addressbook.each_with_index{|value, index| puts "Entry #{index+1}: #{value.fullname}"}
+		puts ''
 	end
 end
