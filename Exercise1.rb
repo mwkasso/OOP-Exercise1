@@ -22,11 +22,11 @@ class Person
 		puts "Date of Birth: " + @dob.to_s + "\n\n"
 		puts "Email Addresses:\n"
 		@emails.each do |value|
-			puts "- " + value
+			puts "- #{value}"
 		end
 		puts "Phone Numbers:\n"
 		@phone_numbers.each do |value|
-			puts "- " + value
+			puts "- #{value}" + 
 		end
 		return ''
 	end
@@ -54,4 +54,8 @@ class Person
 	def to_s
 		return "#{fullname} was born on #{@dob}. \nTheir email addresses are: #{@emails}. \nTheir phone numbers are #{@phone_numbers}"
 	end
+end
+
+class FamilyMember < Person
+	attr_accessor :relationship
 end
