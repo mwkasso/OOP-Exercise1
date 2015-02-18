@@ -3,21 +3,21 @@ class Person
 	attr_reader :first_name, :surname, :dob, :emails, :phone_numbers, :fullname
 	
 	#initialize
-	def initialize(name = "joe", surname = "bloggs", dob = nil)
+	def initialize(name, surname, dob = nil)
 		@first_name = name.capitalize
 		@surname = surname.capitalize
 		@dob = Date.parse(dob, '%d %b %Y')
 		@emails = []
 		@phone_numbers = []
-		@fullname = @first_name + " " +@surname
+		@fullname = "#{@first_name} #{@surname}"
 	end
 
 	# get methods
 
 	def print_details
 		puts "#{fullname}\n"
-		puts "-" * fullname.length
-		puts "Date of Birth: " + @dob.strftime("%d %B %Y") + "\n\n"
+		puts '-' * fullname.length
+		puts "Date of Birth: #{@dob.strftime("%d %B %Y")}\n\n"
 		puts "Email Addresses:\n"
 		@emails.each do |value|
 			puts "- #{value}"
