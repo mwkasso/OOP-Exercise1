@@ -1,6 +1,7 @@
 require 'Date'
 class Person
-	attr_reader :first_name, :surname, :dob, :emails, :phone_numbers, :fullname
+	attr_accessor :first_name, :surname, :dob
+	attr_reader :emails, :phone_numbers
 	
 	#initialize
 	def initialize(name, surname, dob = nil)
@@ -9,7 +10,6 @@ class Person
 		@dob = Date.parse(dob, '%d %b %Y')
 		@emails = []
 		@phone_numbers = []
-		@fullname = "#{@first_name} #{@surname}"
 	end
 
 	# get methods
@@ -30,6 +30,10 @@ class Person
 	end
 
 	# set methods
+
+	def fullname
+		"#{@first_name} #{@surname}"
+	end
 
 	def add_email(email)
 		@emails << email
@@ -58,6 +62,11 @@ end
 
 class FamilyMember < Person
 	attr_accessor :relationship
+	# *args splat parse as many args as you want
+	def initialize(relationship="relationship", *args)
+		@relationship = relationship
+		super
+	end
 end
 
 # AddressBook class
@@ -70,9 +79,10 @@ class AddressBook
 	end
 
 	def add(person)
-		if person.class == Person
-			@addressbook << person 
+		if person.class <= Person
+			@addressbook << person
 		else
+			# raise "error message" can also work
 			puts 'Input is not a person'
 		end
 	end
