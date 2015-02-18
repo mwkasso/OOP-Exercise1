@@ -17,7 +17,7 @@ class Person
 	def print_details
 		puts "#{fullname}\n"
 		puts "-" * fullname.length
-		puts "Date of Birth: " + @dob.to_s + "\n\n"
+		puts "Date of Birth: " + @dob.strftime("%d %B %Y") + "\n\n"
 		puts "Email Addresses:\n"
 		@emails.each do |value|
 			puts "- #{value}"
