@@ -81,7 +81,7 @@ class AddressBook
 		puts "Address Book\n"
 		puts '-' * 'Address Book'.length
 		puts "\n"
-		addressbook.each_with_index{|value, index| puts "Entry #{index+1}: #{value.fullname}"}
+		@addressbook.each_with_index{|value, index| puts "Entry #{index+1}: #{value.fullname}"}
 		puts ''
 	end
 end
